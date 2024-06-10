@@ -31,7 +31,7 @@
 #     'first column': [1, 2, 3, 4],
 #     'second column': [10, 20, 30, 40]})
 # st.write("Styling a dataframe with Pandas Styler:")
-# styled_dataframe = dataframe.style.highlight_max(axis=0)
+# styled_dataframe = dataframe.style.highlight_max(axis=0) # will highlight the the max element in each column (axis=0)
 # st.dataframe(styled_dataframe)
 
 
@@ -51,15 +51,20 @@
 
 # # plotting a map -->
 
-# import streamlit as st
-# import numpy as np
-# import pandas as pd
+import streamlit as st
+import numpy as np
+import pandas as pd
 
-# st.write("Plotting a map with st.map():")
-# map_data = pd.DataFrame(
-#     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-#     columns=['lat', 'lon'])
-# st.map(map_data)
+st.write("Plotting a map with st.map():")
+map_data = pd.DataFrame(
+    np.random.randn(100, 2) / [50, 50] + [28.6692, 77.3538], 
+    columns=['lat', 'lon']) # set the column names
+
+'''28.6692, 77.3538 are the coordinates Ghaziabad. random.randn() generates a 1000x2 matrix of random numbers, 
+which are then scaled down by 50 and then added to Ghaziabad's coordinates so that unique points can be generated across Ghaziabad'''
+
+st.map(map_data)
+print(map_data)
 
 
 
@@ -89,15 +94,15 @@
 
 # progress bar -->
 
-import streamlit as st
-import time
+# import streamlit as st
+# import time
 
-st.write("Showing progress with st.progress():")
-'Starting a long computation...'
-latest_iteration = st.empty()
-bar = st.progress(0)
-for i in range(100):
-    latest_iteration.text(f'Iteration {i + 1}')
-    bar.progress(i + 1)
-    time.sleep(0.1)
-'...and now we\'re done!'
+# st.write("Showing progress with st.progress():")
+# 'Starting a long computation...'
+# latest_iteration = st.empty()
+# bar = st.progress(0)
+# for i in range(100):
+#     latest_iteration.text(f'Iteration {i + 1}')
+#     bar.progress(i + 1)
+#     time.sleep(0.1)
+# '...and now we\'re done!'
